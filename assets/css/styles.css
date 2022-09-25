@@ -7,6 +7,14 @@
           box-sizing: border-box;
 }
 
+body,
+html {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 body {
   font-family: "Noto Sans", sans-serif;
   background-color: #18191A;
@@ -36,21 +44,45 @@ main .containerChat .newMessage {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   position: relative;
+}
+
+main .containerChat .newMessage.sended {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+main .containerChat .newMessage.sended .containerMessage {
+  background-color: #0052D4;
+}
+
+main .containerChat .newMessage.sended .containerMessage:hover {
+  background-color: #063b8f;
+}
+
+main .containerChat .newMessage.received {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+main .containerChat .newMessage.received .containerMessage {
+  background-color: #CB356B;
+}
+
+main .containerChat .newMessage.received .containerMessage:hover {
+  background-color: #a72253;
 }
 
 main .containerChat .newMessage .containerMessage {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  background-color: #0052D4;
   color: #fafafa;
   border-radius: 8px;
   font-family: inherit;
@@ -75,10 +107,6 @@ main .containerChat .newMessage .containerMessage small {
   margin-top: auto;
   font-size: 10px;
   padding: 4px 6px;
-}
-
-main .containerChat .newMessage .containerMessage:hover {
-  background-color: #063b8f;
 }
 
 main .containerChat .newMessage .containerMessage .miniReaction {

@@ -27,7 +27,7 @@
     function renderMessage(message) {
         const containerChat = document.querySelector(".containerChat");
         const newMessage = document.createElement("div");
-        newMessage.classList.add("newMessage");
+        newMessage.className = "newMessage sended";
         newMessage.setAttribute("data-key", message.id);
 
         newMessage.innerHTML = `
@@ -127,6 +127,35 @@
         return false;
     });
 
+
+    /*  var onlongtouch;
+     var timer;
+     var touchduration = 800;
+
+     function touchstart(e) {
+         e.preventDefault();
+         if (!timer) {
+             timer = setTimeout(onlongtouch, touchduration);
+         }
+     }
+
+     function touchend() {
+         if (timer) {
+             clearTimeout(timer);
+             timer = null;
+         }
+     }
+
+     onlongtouch = function() {
+         timer = null;
+         
+         
+     };
+
+     document.addEventListener("DOMContentLoaded", function(event) {
+         window.addEventListener("touchstart", touchstart, false);
+         window.addEventListener("touchend", touchend, false);
+     }); */
 
 
 })();

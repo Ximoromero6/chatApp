@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+body,
+html {
+    user-select: none;
+}
+
 body {
     font-family: "Noto Sans", sans-serif;
     background-color: #18191A;
@@ -24,13 +29,29 @@ main {
         .newMessage {
             width: 100%;
             display: flex;
-            justify-content: flex-end;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             position: relative;
+            &.sended {
+                justify-content: flex-end;
+                .containerMessage {
+                    background-color: #0052D4;
+                    &:hover {
+                        background-color: #063b8f;
+                    }
+                }
+            }
+            &.received {
+                justify-content: flex-start;
+                .containerMessage {
+                    background-color: #CB356B;
+                    &:hover {
+                        background-color: #a72253;
+                    }
+                }
+            }
             .containerMessage {
                 width: fit-content;
-                background-color: #0052D4;
                 color: #fafafa;
                 border-radius: 8px;
                 font-family: inherit;
@@ -48,9 +69,6 @@ main {
                     margin-top: auto;
                     font-size: 10px;
                     padding: 4px 6px;
-                }
-                &:hover {
-                    background-color: #063b8f;
                 }
                 .miniReaction {
                     width: 25px;
