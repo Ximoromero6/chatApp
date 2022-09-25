@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css");
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Noto Sans", sans-serif;
+    background-color: #18191A;
+}
+
+main {
+    background-color: #242526;
+    max-width: 600px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 3px;
+    .containerChat {
+        min-height: 300px;
+        padding: 10px 0;
+        .newMessage {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 10px;
+            position: relative;
+            .containerMessage {
+                width: fit-content;
+                background-color: #0052D4;
+                color: #fafafa;
+                border-radius: 8px;
+                font-family: inherit;
+                display: flex;
+                align-items: center;
+                margin: 0 10px;
+                position: relative;
+                p {
+                    word-break: break-word;
+                    font-size: 13px;
+                    padding: 10px;
+                }
+                small {
+                    display: block;
+                    margin-top: auto;
+                    font-size: 10px;
+                    padding: 4px 6px;
+                }
+                &:hover {
+                    background-color: #063b8f;
+                }
+                .miniReaction {
+                    width: 25px;
+                    height: 25px;
+                    border: 1px solid #242526;
+                    border-radius: 100%;
+                    position: absolute;
+                    bottom: -18px;
+                    left: 8px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #242526;
+                    z-index: 1;
+                    img {
+                        width: 15px;
+                        height: 15px;
+                        object-fit: cover;
+                    }
+                }
+            }
+            .containerReactions {
+                background-color: #464646;
+                padding: 8px;
+                border-radius: 30px;
+                display: none;
+                align-items: center;
+                justify-content: space-between;
+                position: absolute;
+                top: -30px;
+                z-index: 3;
+                button.reaction {
+                    background-color: transparent;
+                    outline: 0;
+                    cursor: pointer;
+                    width: 25px;
+                    height: 25px;
+                    border: none;
+                    border-radius: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0 4px;
+                    img {
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                    &:nth-child(1) {
+                        animation: fadeInFromNone 0.1s ease;
+                    }
+                    &:nth-child(2) {
+                        animation: fadeInFromNone 0.09s ease;
+                    }
+                    &:nth-child(3) {
+                        animation: fadeInFromNone 0.08s ease;
+                    }
+                    &:nth-child(4) {
+                        animation: fadeInFromNone 0.07s ease;
+                    }
+                    &:nth-child(5) {
+                        animation: fadeInFromNone 0.06s ease;
+                    }
+                    &:nth-child(6) {
+                        animation: fadeInFromNone 0.05s ease;
+                    }
+                }
+            }
+            @-webkit-keyframes fadeInFromNone {
+                0% {
+                    display: none;
+                    width: 0px;
+                }
+                1% {
+                    display: flex;
+                    width: 0px;
+                }
+                100% {
+                    display: flex;
+                    width: 25px;
+                }
+            }
+            &.selected::before {
+                content: "";
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 82, 212, .3);
+                position: absolute;
+                inset: 0;
+                z-index: 2;
+            }
+        }
+    }
+    #formChat {
+        background-color: transparent;
+        width: 100%;
+        padding: 10px;
+        .containerField {
+            border-radius: 24px;
+            padding: 6px;
+            background-color: #3A3B3C;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 35px;
+                height: 35px;
+                border-radius: 100%;
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+                transition: all .1s;
+                i {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 18px;
+                    color: #E4E6EB;
+                }
+                &:hover {
+                    background-color: lighten(#3A3B3C, 15);
+                }
+            }
+            #fieldMessages {
+                flex: 1;
+                height: 100%;
+                margin: 0 10px;
+                outline: 0;
+                background-color: transparent;
+                color: #E4E6EB;
+                font-family: inherit;
+                border: none;
+                font-size: 14px;
+                font-weight: 300;
+                &::placeholder {
+                    color: #E4E6EB;
+                    font-family: inherit;
+                }
+            }
+        }
+    }
+}
